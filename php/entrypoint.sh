@@ -13,3 +13,5 @@ if [ ! -f "/usr/share/nginx/html/.setup_done" ]; then
 
     touch /usr/share/nginx/html/.setup_done
 fi
+
+exec php-fpm
