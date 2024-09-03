@@ -39,7 +39,7 @@ services:
       MYSQL_USER: "${DB_USERNAME}"
       MYSQL_PASSWORD: "${DB_PASSWORD}"
     container_name: "db"
-voulumes:
+volumes:
  app-source:
  app-data:
 networks:
