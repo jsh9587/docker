@@ -4,6 +4,7 @@ FROM php:8.3-fpm
 # 시스템 패키지 및 PHP 확장 설치 및 Composer 설치
 RUN apt-get update && apt-get install -y \
     libpng-dev libjpeg-dev libfreetype6-dev \
+    vim \
     libpq-dev libzip-dev unzip libonig-dev git \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd mysqli pdo pdo_mysql \
