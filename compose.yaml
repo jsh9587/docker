@@ -3,6 +3,7 @@ services:
     image: nginx:mainline-alpine
     depends_on:
       - php
+      - mariadb
     networks:
       backend:
     ports:
