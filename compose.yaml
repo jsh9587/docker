@@ -12,6 +12,7 @@ services:
       - ./htdocs:/usr/share/nginx/html/
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     container_name: "web"
+
   php:
     build:
       context: './php/'
@@ -22,11 +23,9 @@ services:
     volumes:
       - ./htdocs/:/usr/share/nginx/html/
     container_name: "php"
+
   mariadb:
-    build:
-      context: './mariadb/'
-      args:
-        MARIADB_VERSION: "latest"
+    image: mariadb:latest
     restart: always
     networks:
       backend:
