@@ -9,7 +9,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./htdocs:/usr/share/nginx/html/
+      - app-source:/usr/share/nginx/html/
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     container_name: "web"
 
@@ -21,7 +21,7 @@ services:
     networks:
       backend:
     volumes:
-      - ./htdocs/:/usr/share/nginx/html/
+      - app-source:/usr/share/nginx/html/
     container_name: "php"
 
   mariadb:
@@ -32,13 +32,15 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./database/:/var/lib/mysql/
+      - app-data:/var/lib/mysql/
     environment:
       MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
       MYSQL_DATABASE: "${DB_NAME}"
       MYSQL_USER: "${DB_USERNAME}"
       MYSQL_PASSWORD: "${DB_PASSWORD}"
     container_name: "db"
-
+voulumes:
+ app-source:
+ app-data:
 networks:
   backend:
