@@ -9,7 +9,7 @@ if [ ! -f "/usr/share/nginx/html/.setup_done" ]; then
     # Composer 패키지 설치
     composer install --no-interaction --prefer-dist \
     --optimize-autoloader \
-    --working-dir=/usr/share/nginx/html/crm_api/tlclover-api
+    --working-dir=/usr/share/nginx/html/crm_api/crm
 
     touch /usr/share/nginx/html/.setup_done
 fi
