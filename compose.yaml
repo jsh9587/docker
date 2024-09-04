@@ -50,14 +50,14 @@ services:
     networks:
       - frontend
     volumes:
-      - ./node:/usr/src/app
+      - front-source:/usr/src/app
     ports:
       - "3000:3000"
     container_name: "node"
 
 volumes:
   api-source:
-
+  front-source:
 networks:
   backend:
   frontend:
