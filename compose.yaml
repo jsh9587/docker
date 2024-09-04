@@ -32,7 +32,7 @@ services:
     networks:
       - frontend
     volumes:
-      - frontend-source:/usr/src/app
+      - frontend-source:/usr/src/
     working_dir: /usr/src/app
     command: ["npm", "start"]
     container_name: "node"
