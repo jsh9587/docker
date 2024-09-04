@@ -3,19 +3,18 @@ version: '3.8'
 services:
   nginx:
     image: nginx:mainline-alpine
-    depends_on:
-      - php
-      - node
-      - mariadb
     networks:
       - backend
       - frontend
     ports:
       - "80:80"
     volumes:
-      - api-source:/usr/share/nginx/html/
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    container_name: "web"
+      - api-source:/usr/share/nginx/html/
+    depends_on:
+      - php
+      - node
+    container_name: "nginx"
 
   php:
     build:
@@ -28,13 +27,23 @@ services:
       - api-source:/usr/share/nginx/html/
     container_name: "php"
 
+  node:
+    image: node:18
+    networks:
+      - frontend
+    volumes:
+      - frontend-source:/usr/src/app
+    working_dir: /usr/src/app
+    command: ["npm", "start"]
+    container_name: "node"
+
   mariadb:
     image: mariadb:latest
     restart: always
     networks:
       - backend
     ports:
-      - "3306:3306"
+      - 3306:3306
     volumes:
       - ./database/:/var/lib/mysql/
     environment:
@@ -44,20 +53,10 @@ services:
       MYSQL_PASSWORD: "${DB_PASSWORD}"
     container_name: "db"
 
-  node:
-    build:
-      context: './node/'
-    networks:
-      - frontend
-    volumes:
-      - front-source:/usr/src/app
-    ports:
-      - "3000:3000"
-    container_name: "node"
-
 volumes:
   api-source:
-  front-source:
+  frontend-source:
+
 networks:
   backend:
   frontend:
