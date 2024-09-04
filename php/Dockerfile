@@ -20,8 +20,5 @@ WORKDIR /usr/share/nginx/html
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
-RUN chown -R www-data:www-data /usr/share/nginx/html/crm_api /usr/share/nginx/html/crm_api/crm/bootstrap/cache && \
-    chmod -R 775 /usr/share/nginx/html/crm_api/crm/storage /usr/share/nginx/html/crm_api/crm/bootstrap/cache
-
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
