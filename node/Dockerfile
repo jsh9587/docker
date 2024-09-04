@@ -2,7 +2,7 @@
 FROM node:20
 
 # 작업 디렉토리 설정
-WORKDIR /usr/src
+WORKDIR /usr/src/app
 
 # Git 설치 (만약 Git이 필요하다면)
 RUN apt-get update && apt-get install -y git
