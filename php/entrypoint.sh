@@ -12,6 +12,13 @@ if [ ! -f "/usr/share/nginx/html/.setup_done" ]; then
     --working-dir=/usr/share/nginx/html/crm_api/crm
 
     touch /usr/share/nginx/html/.setup_done
+
+
+    # 권한 설정
+    chown -R www-data:www-data /usr/share/nginx/html/crm_api/crm/storage /usr/share/nginx/html/crm_api/crm/bootstrap/cache
+    chmod -R 775 /usr/share/nginx/html/crm_api/crm/storage /usr/share/nginx/html/crm_api/crm/bootstrap/cache
+
+    
 fi
 
 exec php-fpm
