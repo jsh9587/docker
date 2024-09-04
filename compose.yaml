@@ -45,7 +45,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./database/:/var/lib/mysql/
+      - database:/var/lib/mysql/
     environment:
       MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
       MYSQL_DATABASE: "${DB_NAME}"
@@ -56,7 +56,7 @@ services:
 volumes:
   api-source:
   frontend-source:
-
+  database:
 networks:
   backend:
   frontend:
