@@ -2,25 +2,19 @@
 FROM node:20
 
 # 작업 디렉토리 설정
-WORKDIR /usr/src
+WORKDIR /usr/src/app
 
 # Git 설치 (만약 Git이 필요하다면)
 RUN apt-get update && apt-get install -y git
 
 # 소스 코드를 GitHub에서 클론
-RUN git clone https://github.com/jsh9587/crm-front.git
-
-# 작업 디렉토리 설정
-WORKDIR /usr/src/crm-front
+RUN git clone https://github.com/jsh9587/crm-front.git .
 
 # 패키지 설치
 RUN npm install
 
-# 빌드 명령어 실행 (배포 
+# 빌드 명령어 실행 (배포를 위한 빌드)
 RUN npm run build
-
-# 애플리케이션 소스 복사
-COPY . .
 
 # 포트 노출
 EXPOSE 3000
