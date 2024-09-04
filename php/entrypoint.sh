@@ -15,8 +15,8 @@ if [ ! -f "/usr/share/nginx/html/.setup_done" ]; then
 
 
     # 권한 설정
-    chown -R www-data:www-data /usr/share/nginx/html/crm_api/crm/storage /usr/share/nginx/html/crm_api/crm/bootstrap/cache
-    chmod -R 775 /usr/share/nginx/html/crm_api/crm/storage /usr/share/nginx/html/crm_api/crm/bootstrap/cache
+    #chown -R www-data:www-data /usr/share/nginx/html/crm_api/crm/storage /usr/share/nginx/html/crm_api/crm/bootstrap/cache
+    #chmod -R 775 /usr/share/nginx/html/crm_api/crm/storage /usr/share/nginx/html/crm_api/crm/bootstrap/cache
 
     
 fi
