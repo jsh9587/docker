@@ -14,9 +14,9 @@ if [ ! -f "/usr/share/nginx/html/.setup_done" ]; then
     touch /usr/share/nginx/html/.setup_done
 
 
-    # 권한 설정
-    #chown -R www-data:www-data /usr/share/nginx/html/crm_api/crm/storage /usr/share/nginx/html/crm_api/crm/bootstrap/cache
-    #chmod -R 775 /usr/share/nginx/html/crm_api/crm/storage /usr/share/nginx/html/crm_api/crm/bootstrap/cache
+    # 권한 설정 (PHP 컨테이너 내부)
+    chown -R www-data:www-data /usr/share/nginx/html/
+    chmod -R 775 /usr/share/nginx/html/
 
     
 fi
