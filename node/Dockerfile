@@ -10,8 +10,6 @@ RUN apt-get update && apt-get install -y git
 # 소스 코드를 GitHub에서 클론
 RUN git clone https://github.com/jsh9587/crm-front.git .
 
-WORKDIR /usr/src/app/crm-front
-
 # 패키지 설치
 RUN npm install
 
