@@ -26,7 +26,7 @@ services:
     container_name: "php"
 
   node:
-    image: node:18
+    image: node:20
     networks:
       - frontend
     volumes:
